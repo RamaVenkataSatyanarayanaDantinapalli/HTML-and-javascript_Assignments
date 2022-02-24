@@ -1,0 +1,215 @@
+<html>
+    <head>
+        <style>   
+			Body {  
+			  font-family: Calibri, Helvetica, sans-serif;  
+			  background-color: pink;  
+			}  
+            table{
+                text-align: center;
+
+            }
+           
+			div{
+				text-align: center;
+
+			}
+			input[type=submit]{
+                    width: 15%;  
+                    text-align: center; 
+					line-height: 200%;
+                    background-color:#F7DDD9;
+                }
+                input[type=checkbox]{
+                    width: 3%;  
+                    text-align: center; 
+					
+                }
+                p{
+                    width: 50%;   
+					margin: 8px 0;  
+					padding: 10px 20px;   
+					display: inline-block;   
+					border: 2px solid green;   
+					box-sizing: border-box; 
+                    background-color: white;
+                }
+                select{
+                    width: 100%;   
+					margin: 8px 0;  
+					padding: 10px 20px;   
+					display: inline-block;   
+					border: 2px solid green;   
+					box-sizing: border-box; 
+                }
+			button {   
+				   background-color: #4CAF50;   
+				   width: 10%;  
+					color: orange;   
+					padding: 15px;   
+					margin: 10px 0px;   
+					border: none;   
+					cursor: pointer;   
+					 }   
+			 form {   
+                 width: 100%;
+                 height: 100%;
+				 text-align: center	;
+					border: 3px solid #f1f1f1;   
+				}   
+			 input[type=text], input[type=password] {  
+				  
+					width: 100%;
+                       
+					margin: 8px 0;  
+					padding: 10px 20px;   
+					display: inline-block;   
+					border: 2px solid green;   
+					box-sizing: border-box;   
+				}  
+			 button:hover {   
+					opacity: 0.7;   
+				}   
+				 
+			 .container {   
+					padding: 25px;   
+					background-color: lightblue;  
+				}   
+			</style>   
+        <script>
+            function displayCertifications(){
+                var education = document.getElementById("education").value;
+                var output = document.getElementById("out101");
+                output.innerHTML = "";
+                if(education=="BTech"){
+                    output.innerHTML='<input type="checkbox"> Java<input type="checkbox"> Python<input type="checkbox"> Oracle<input type="checkbox"> Networking CCNA<input type="checkbox"> Cloud Computing'
+                }
+                else if(education=="MTech"){
+                    output.innerHTML='<input type="checkbox"> Java<input type="checkbox"> Python<input type="checkbox"> Oracle<input type="checkbox"> Networking CCNA<input type="checkbox"> Amazon Web Services'
+                }
+                else if(education=="MCA"){
+                    output.innerHTML='<input type="checkbox"> Java<input type="checkbox"> Python<input type="checkbox"> Oracle<input type="checkbox"> Networking CCNA<input type="checkbox"> Microsoft Azure'
+                }
+                else if(education=="MBA"){
+                    output.innerHTML='<input type="checkbox"> Finance<input type="checkbox"> HR<input type="checkbox"> Customer Relationship<input type="checkbox"> Marketing<input type="checkbox"> Banking<input type="checkbox"> Insurance'
+                }
+                else if(education=="Choose Education"){
+                    output.innerHTML="";
+                }
+                else{
+                   output.innerHTML='<input type="checkbox"> Law Of Financial Services<input type="checkbox"> immigration Laws<input type="checkbox"> Human Trafficking<input type="checkbox"> Human Rights'
+                }
+            }
+            function nameValidation(){
+                var name= document.getElementById("name").value.length;
+                if(name<3 || name>30){
+                    alert("Name should be 3-30 characters long.")
+                }
+            }
+            function ageValidation(){
+                var age= document.getElementById("age").value;
+                if(age<21 || age>35){
+                    alert("Age should be 21-35.");
+                    //location.replace("caseStudy.html");
+                }
+            }
+            function phoneValidation(){
+                var phone= document.getElementById("phone").value;
+                var phoneformat=/^[6-9]\d{9}$/;
+                if(phone.match(phoneformat)){
+
+                }
+                else{
+                    alert("Invalid Phone Nummber.");
+                }
+            }
+            function emailValidation(){
+                var email= document.getElementById("email").value;
+                var mailformat="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-zA-Z]+$";
+                if(email.match(mailformat)){
+
+                }
+                else{
+                    alert("Invalid Email Address.");
+                }
+
+            }
+            function passwordValidation(){
+                var password= document.getElementById("password").value;
+                var cpassword= document.getElementById("cpassword").value;
+                if(password!=cpassword){
+                    alert("Password Not Matched!");
+                }
+            }
+            function submitValidation(){
+                var name= document.getElementById("name").value;
+                var password= document.getElementById("password").value;
+                var cpassword= document.getElementById("cpassword").value;
+                if(password==cpassword){
+
+                alert("Thank You "+name+" your details Submitted Successfully.")
+                }
+                else{
+                    alert("Password Not Matched!");
+                }
+            }
+        </script>
+    </head>
+    <body>
+
+		<div class="top">
+            <center
+			<table>
+				<tr>
+					<td style="width: 55%;"> </td>
+					<td>
+						<h1>
+						*****<u>Student Form</u>*****</h1>
+					</td>
+				</tr>
+			</table>
+        </center>
+				
+		</div>
+		
+		
+		<form onsubmit="submitValidation()">
+			<div class="container">  
+                <fieldset> 
+            <center>    
+            <table>
+				<tr><td><label><h3>Name : </h3></label></td>   
+				<td><input type="text" placeholder="Enter Name" id="name" name="name" required onblur="nameValidation()"/><br></td> </tr>
+				<tr><td><label><h3>Password : </h3></label></td>   
+				<td><input type="password" placeholder="Enter Password" id="password" name="password" required /><br></td>  </tr>
+               <tr><td> <label><h3>Confirm Password : </h3></label> </td>  
+               <td><input type="password" placeholder="Confirm Password" id="cpassword" name="cpassword" required/><br></td>  </tr>
+            <tr><td> <label><h3>Age : </h3></label></td>   
+            <td><input type="text" placeholder="Enter Age" id="age" name="age" required onblur="ageValidation()"/><br> </td> </tr>
+            <td><label><h3>Phone Number : </h3></label></td>   
+            <td><input type="text" placeholder="Enter Phone Number" id=phone" name="phone" required onblur="phoneValidation()"/> <br></td> 
+            <tr> <td><label><h3>Email Address : </h3></label> </td>  
+            <td><input type="text" placeholder="Enter Email Address" id="email" name="email" required onblur="emailValidation()"/><br></td>  </tr>
+            <tr><td><label><h3>Education : </h3></label> </td>  
+            <td><select name="Education" id="education" onblur="displayCertifications()">
+                <option value="Choose Education">Choose Education</option>   
+                <option value="BTech">B.Tech</option>
+                <option value="MTech">MTech</option>
+                <option value="MCA">MCA</option>
+                <option value="MBA">MBA</option>
+                <option value="Law">LAW</option>
+                </select><br><br></td></tr></table></center>
+                <fieldset>
+                    <label><h3><u>Certifications</u></h3></label>
+
+				<p id="out101">
+                        
+				</p></fieldset><br>
+                <input type="submit" value="Submit"/>
+                </fieldset>
+			</div>   
+			
+		</form>
+		<hr/>
+    </body>
+</html>
