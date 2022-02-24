@@ -1,0 +1,173 @@
+<HTML>
+	<HEAD>
+		<style>
+			body{background-image: url("Continent.jpg"); background-size: cover;}
+			h1{text-align: center;}
+			p{text-align: center; color: black;}
+			form{text-align: center;}
+		</style>
+		<script>
+			function showCountries(){
+				var filterOut = document.getElementById("countryName").value;
+				var arr = ["India","China","Indonesia","Pakistan","Bangladesh","Japan","Korea","Iran","Singapore","Sri Lanka","Nigeria","Ethiopia","Egypt","Libya","Kenya","Uganda","Algeria","Sudan","Zimbabwe","Congo","Russia","Germany","United Kingdom","France","Italy","Spain","Poland","Romania","Netherlands","Belgium","United States Of America","Mexico","Canada","Haiti","Cuba","Panama","jamaica","Belize","Bahamas","Saint Lucia","Brazil","Colombia","Argentina","Peru","Chile","Bolivia","Paraguay","Uruguay","Guyana","Suriname","Australia","New Zealand","Fiji","Vanuatu","Samoa","Guam","Kiribati","Tonga","Tuvalu","Tokelau"];
+				var newList = [];
+				var output = document.getElementById("out101");
+                output.innerHTML = "";
+                arr.forEach(element => {
+                   
+                    if(element.startsWith(filterOut))
+                    {
+                        newList.push(element);
+                    }
+                   
+                    
+                });
+                output.innerHTML = newList.join(" | ");
+			}
+
+			var newAsia = [];
+			var newAfrica = [];
+			var newEurope = [];
+			var newNorthAmerica = [];
+			var newSouthAmerica= [];
+			var newAustralia = [];
+
+			function addCountryTask()
+			{
+				var countryName = document.getElementById("countryName").value;
+				if(countryName=='India' || countryName=='China'|| countryName=='Indonesia'|| countryName=='Pakistan'|| countryName=='Bangladesh'|| countryName=='Japan'|| countryName=='Korea'|| countryName=='Iran'|| countryName=='Singapore'|| countryName=='Sri Lanka'){
+					alert(countryName+' added to Asia');
+					var asia=new Array;
+                    asia.push(countryName);
+
+					
+					var output1 = document.getElementById("out102");
+					output1.innerHTML = "";
+                asia.forEach(element => {
+                   
+                    if(element)
+                    {
+                        newAsia.push(element);
+                    }
+                   
+                    
+                });
+					output1.innerHTML=newAsia.join(" | ");
+				}
+				else if(countryName=='Nigeria'||countryName=='Ethiopia'||countryName=='Egypt'||countryName=='Libya'||countryName=='Kenya'||countryName=='Uganda'||countryName=='Algeria'||countryName=='Sudan'||countryName=='Zimbabwe'||countryName=='Congo'){
+					alert(countryName+' added to Africa');
+					var africa=new Array;
+                    africa.push(countryName);
+
+					var output1 = document.getElementById("out102");
+					output1.innerHTML = "";
+                africa.forEach(element => {
+                   
+                    if(element)
+                    {
+                        newAfrica.push(element);
+                    }
+                   
+                    
+                });
+					output1.innerHTML=newAfrica.join(" | ");
+				}
+				else if(countryName=='Russia'||countryName=='Germany'||countryName=='United Kingdom'||countryName=='France'||countryName=='Italy'||countryName=='Spain'||countryName=='Poland'||countryName=='Romania'||countryName=='Netherlands'||countryName=='Belgium'){
+					alert(countryName+' added to Europe');
+					var europe=new Array;
+                    europe.push(countryName);
+
+					var output1 = document.getElementById("out102");
+					output1.innerHTML = "";
+                europe.forEach(element => {
+                   
+                    if(element)
+                    {
+                        newEurope.push(element);
+                    }
+                   
+                    
+                });
+					output1.innerHTML=newEurope.join(" | ");
+				}
+				else if(countryName=='United States Of America'||countryName=='Mexico'||countryName=='Canada'||countryName=='Haiti'||countryName=='Cuba'||countryName=='Panama'||countryName=='jamaica'||countryName=='Belize'||countryName=='Bahamas'||countryName=='Saint Lucia'){
+					alert(countryName+' added to North America');
+					var northAmerica=new Array;
+                    northAmerica.push(countryName);
+
+					var output1 = document.getElementById("out102");
+					output1.innerHTML = "";
+                northAmerica.forEach(element => {
+                   
+                    if(element)
+                    {
+                        newNorthAmerica.push(element);
+                    }
+                   
+                    
+                });
+					output1.innerHTML=newNorthAmerica.join(" | ");
+				}
+				else if(countryName=='Brazil'||countryName=='Colombia'||countryName=='Argentina'||countryName=='Peru'||countryName=='Chile'||countryName=='Bolivia'||countryName=='Paraguay'||countryName=='Uruguay'||countryName=='Guyana'||countryName=='Suriname'){
+					alert(countryName+' added to South America');
+					var southAmerica=new Array;
+                    southAmerica.push(countryName);
+
+					var output1 = document.getElementById("out102");
+					output1.innerHTML = "";
+                southAmerica.forEach(element => {
+                   
+                    if(element)
+                    {
+                        newSouthAmerica.push(element);
+                    }
+                   
+                    
+                });
+					output1.innerHTML=newSouthAmerica.join(" | ");
+				}
+				else if(countryName=='Australia'||countryName=='New Zealand'||countryName=='Fiji'||countryName=='Vanuatu'||countryName=='Samoa'||countryName=='Guam'||countryName=='Kiribati'||countryName=='Tonga'||countryName=='Tuvalu'||countryName=='Tokelau'){
+					alert(countryName+' added to Australia');
+					var australia=new Array;
+                    australia.push(countryName);
+
+					var output1 = document.getElementById("out102");
+					output1.innerHTML = "";
+                australia.forEach(element => {
+                   
+                    if(element)
+                    {
+                        newAustralia.push(element);
+                    }
+                   
+                    
+                });
+					output1.innerHTML=newAustralia.join(" | ");
+				}
+			}
+			
+		</script>
+	</HEAD>
+		
+	<Body>
+		<h1>Add Country to It's Continent</h1>
+		<form id="fid101">
+			<h4>Country Name : <input type="text" id="countryName" onkeyup="showCountries()"></h2>
+			<b>
+				<p id="out101">
+		
+				</p>
+				</b>
+			<input type="button" value="Add Country"
+			       onclick="addCountryTask()"/><hr/>
+				   <b>
+					<p id="out102">
+			
+					</p>
+					</b>
+			<ul>
+								
+			</ul>
+		</form>
+	</Body>
+</HTML>
